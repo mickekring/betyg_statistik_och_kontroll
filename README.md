@@ -8,6 +8,8 @@ Med detta pythonscript kan du automatisera bort en hel del av betysadministratio
 
 ## Kom igång
 
+### Du behöver Python version 3.x för att köra scriptet.
+
 1. Spara filen __main_windows.py__ om du använder PC och Windows i en mapp på din dator. Om du kör MacOS så väljer du __main.py__
 2. Skapa 3 mappar i den mappen, som ska heta __betygskatalog__, __betygskatalog_felsökning__ och __betygskatalog_statistik__ så att det ser ut såhär 
 
