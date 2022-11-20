@@ -4,7 +4,7 @@ Med detta pythonscript kan du automatisera bort en hel del av betysadministratio
 
 ## Bakgrund och vad scriptet gör
 [Läs artikeln på min sajt för mer information om vad och varför](https://mickekring.se/sa-automatiserar-du-kontroll-av-betyg-samt-skapande-av-betygsstatistik/)
-Här finns även en film som visar hela flödet.
+<br />Här finns även en film som visar hela flödet.
 
 ## Kom igång
 
