@@ -10,7 +10,7 @@ Med detta pythonscript kan du automatisera bort en hel del av betysadministratio
 
 ### Du behöver Python version 3.x samt Java installerat för att köra scriptet.
 
-1. Spara filen __main_windows.py__ om du använder PC och Windows i en mapp på din dator. Om du kör MacOS så väljer du __main.py__
+1. Spara filen __main_.py__ i en mapp på din dator.
 2. Skapa 3 mappar i den mappen, som ska heta __betygskatalog__, __betygskatalog_felsökning__ och __betygskatalog_statistik__ så att det ser ut såhär 
 
 ![dir](https://user-images.githubusercontent.com/10948066/202915732-21f504c2-fa41-4c23-947a-76e7a7d86c3b.jpg)
@@ -21,7 +21,7 @@ Med detta pythonscript kan du automatisera bort en hel del av betysadministratio
 
 <br />Om du inte har koll på detta, så kommer jag släppa en liten tutorial hur du kommer igång med Python på din dator under kommande veckan.
 4. Byt namn på din betygskatalog till __betyg.pdf__ och lägg den i mappen __betygskatalog__
-5. Kör scriptet __main_windows.py__ eller __main.py__ och välj 1 eller 2, det vill säga felsökning eller statistik.
+5. Kör scriptet __main.py__ och välj 1 eller 2, det vill säga felsökning eller statistik.
 
 ## Frågor
 Hör av dig till mig på sociala medier, oftast @mickekring, eller via mail på jag@mickekring.se
