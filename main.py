@@ -13,17 +13,26 @@ from tinydb import TinyDB, Query
 from termcolor import colored
 import tabula
 import pandas as pd
+from sys import platform
 
 arskurs = "9"
 
 
+# Kontrollerar vilket operativsystem
+
+if platform == "linux" or platform == "linux2":
+        operativsystem = "linux"
+elif platform == "darwin":
+        operativsystem = "macos"
+elif platform == "win32":
+        operativsystem = "windows"
+        
 
 # Global lista över de betyg som finns. Används för att iterera över
 
 betygslista = ["BL", "EN", "HKK", "IDH", "MA", "ML SPR", "ML BET", "M1 SPR", "M1 BET", "M2 SPR", 
 "M2 BET", "MU", "NO", "BI", "FY", "KE", "SO", "GE", "HI", "RE", "SH", "SL", "SV", "SVA", "TN", 
 "TK", "DA", "JU"]
-
 
 
 # Databasinställningar ##########################################################
@@ -39,12 +48,14 @@ table_larare = db.table('larare')
 user = Query()
 
 
-
 # Rensat konsolen vid start av script ####################################
 
-clear = lambda: os.system('clear')
-clear()
+if operativsystem == "windows":
+        clear = lambda: os.system('cls')
+else:
+        clear = lambda: os.system('clear')
 
+clear()
 
 
 # Startvariabel för bakgrundfärg #######################################
@@ -60,8 +71,12 @@ def Konvertera_pdf_betygskatalog_till_xls():
 	output = "betygskatalog/betyg.csv"
 	tabula.convert_into(df, output, output_format="csv", pages=1, stream=True)
 
-	read_file = pd.read_csv (r"betygskatalog/betyg.csv")
-	read_file.to_excel (r"betygskatalog/betyg.xls", index = None, header=False)
+	if operativsystem == "windows":
+		read_file = pd.read_csv(r"betygskatalog/betyg.csv", encoding = "unicode_escape", engine ="python")
+	else:
+		read_file = pd.read_csv(r"betygskatalog/betyg.csv")
+
+	read_file.to_excel(r"betygskatalog/betyg.xls", index = None, header=False)
 
 
 
