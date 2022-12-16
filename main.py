@@ -1,6 +1,6 @@
 
-# Version 1.0
-# Release 2022-11-19
+# Version 1.0.1
+# Release 2022-12-16
 # Author: Micke Kring @mickekring
 # E-mail: jag@mickekring.se
 
