@@ -20,5 +20,11 @@ Med detta pythonscript kan du automatisera bort en hel del av betysadministratio
 5. Byt namn på din betygskatalog till __betyg.pdf__ och lägg den i mappen __betygskatalog__
 6. Kör scriptet __main.py__ och välj 1 eller 2, det vill säga felsökning eller statistik.
 
+## F.A.Q - Vanliga fel
+* Se till att skapa alla mappar och tänk på att stora / små bokstäver gör skillnad
+* Om du fått felet __AttributeError: module 'tabula' has no attribute 'convert_into'__ så har du installerat __tabula__ och inte __tabula-py__<br />
+Kör __pip3 uninstall tabula__ och därefter __pip3 install tabula-py__
+* Python __3.11__ verkar inte fungera, men om du kör Python _3.__ upp till __3.9__ ska det fungera.
+
 ## Frågor
 Hör av dig till mig på sociala medier, oftast @mickekring, eller via mail på jag@mickekring.se
