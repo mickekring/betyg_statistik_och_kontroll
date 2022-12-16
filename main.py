@@ -1,5 +1,5 @@
 
-# Version 1.0.1
+# Version 1.1.0
 # Release 2022-12-16
 # Author: Micke Kring @mickekring
 # E-mail: jag@mickekring.se
@@ -14,6 +14,8 @@ from termcolor import colored
 import tabula
 import pandas as pd
 from sys import platform
+
+import logging
 
 arskurs = "9"
 
@@ -66,6 +68,8 @@ betyg_color = ""
 
 def Konvertera_pdf_betygskatalog_till_xls():
 
+	logging.info("Start | Konvertera_pdf_betygskatalog_till_xls()")
+
 	df = ("betygskatalog/betyg.pdf")
 
 	output = "betygskatalog/betyg.csv"
@@ -78,11 +82,15 @@ def Konvertera_pdf_betygskatalog_till_xls():
 
 	read_file.to_excel(r"betygskatalog/betyg.xls", index = None, header=False)
 
+	logging.info("Avslut | Konvertera_pdf_betygskatalog_till_xls()")
+
 
 
 # Läser betygsfilen excel och lagrar i databasen ############################
 
 def Läs_från_betygsfil_till_databas():
+
+	logging.info("Start | Läs_från_betygsfil_till_databas()")
 
 	print("\nLäser in betyg från excelfilen till databasen.\nDet här kan ta ett litet tag (30 - 60 sekunder)...")
 
@@ -191,6 +199,8 @@ def Läs_från_betygsfil_till_databas():
 
 	print("Klart. Betygen lästes in utan problem.\n")
 
+	logging.info("Avslut | Läs_från_betygsfil_till_databas()")
+
 	Skapa_excelfil(termin, klassbeteckning, arskurs, "Felsökning")
 
 
@@ -198,6 +208,8 @@ def Läs_från_betygsfil_till_databas():
 # Funktion som läser betyg ut databasen och printar ut dessa till konsolen
 
 def Printa_inlasta_betyg_konsol_och_skapa_katalog_excel(termin, klassbeteckning, arskurs, syfte):
+
+	logging.info("Start | Printa_inlasta_betyg_konsol_och_skapa_katalog_excel()")
 
 	row = 10
 
@@ -409,11 +421,15 @@ def Printa_inlasta_betyg_konsol_och_skapa_katalog_excel(termin, klassbeteckning,
 	worksheet_new.write(row + 1, 0, genomsnittlig_betygspoang_text_1, cell_meta_left_noborder)
 	worksheet_new.write(row + 2, 0, genomsnittlig_betygspoang_text_2, cell_meta_left_noborder)
 
+	logging.info("Avslut | Printa_inlasta_betyg_konsol_och_skapa_katalog_excel()")
+
 	Skapa_amnesstatikstik_for_betygskatalog(termin, klassbeteckning, arskurs)
 
 
 
 def Skapa_amnesstatikstik_for_betygskatalog(termin, klassbeteckning, arskurs):
+
+	logging.info("Start | Skapa_amnesstatikstik_for_betygskatalog()")
 	
 	# Söker fram aktuell klass - kan skickas via funktion
 	students = table_betyg.search((user.Termin == termin) & (user.Klass == klassbeteckning))
@@ -534,6 +550,8 @@ def Skapa_amnesstatikstik_for_betygskatalog(termin, klassbeteckning, arskurs):
 
 
 		col += 1
+
+	logging.info("Avslut | Skapa_amnesstatikstik_for_betygskatalog()")
 
 	Stäng_excelfil()
 
@@ -663,6 +681,8 @@ def Uppdatera_nya_elevuppgifter(personnummer, termin, klassbeteckning, arskurs, 
 
 def Skapa_excelfil(termin, klassbeteckning, arskurs, syfte):
 
+	logging.info("Start | Skapa_excelfil()")
+
 	# Namn på den nya excelfil med betyg som skapas. ##############
 
 	global workbook_new, worksheet_new
@@ -766,6 +786,7 @@ def Skapa_excelfil(termin, klassbeteckning, arskurs, syfte):
 	        worksheet_new.write(row +9, col +3, betyg, header_setting_border_center)
 	    col += 1
 
+	logging.info("Avslut | Skapa_excelfil()")
 
 	Printa_inlasta_betyg_konsol_och_skapa_katalog_excel(termin, klassbeteckning, arskurs, syfte)
 
@@ -775,7 +796,11 @@ def Skapa_excelfil(termin, klassbeteckning, arskurs, syfte):
 
 def Stäng_excelfil():
 
+	logging.info("Start | Stäng_excelfil()")
+
 	workbook_new.close()
+
+	logging.info("Avslut | Stäng_excelfil()")
 
 
 
@@ -812,19 +837,24 @@ def Menu():
 	val = input("Siffra + Enter >>> ")
 
 	if val == "1":
+		logging.info("Start | Meny val 1 - felsökning av betyg")
 		mapp = "betygskatalog_felsökning/"
 		Konvertera_pdf_betygskatalog_till_xls()
 		Läs_från_betygsfil_till_databas()
+		logging.info("Avslut | Meny val 1  - felsökning av betyg")
 	
 	elif val == "2":
+		logging.info("Start | Meny val 2 - statistik")
 		mapp = "betygskatalog_statistik/"
 		print("\nVälj termin (ex VT2021)")
 		termin = input(">>> ")
 		print("\nVälj klass (ex 9A)")
 		klassbeteckning = input(">>> ")
 		Skapa_excelfil(termin, klassbeteckning, arskurs, "Statistik")
+		logging.info("Avslut | Meny val 2 - statistik")
 	
 	else:
+		logging.info("Meny inget giltigt alternativ startat")
 		pass
 
 
@@ -833,7 +863,12 @@ def Menu():
 
 def Main():
 
+	logging.basicConfig(filename='main.log', level=logging.INFO, format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')
+	logging.info("< < < Programstart > > >")
+
 	Menu()
+
+	logging.info("< < < Main Ended > > >")
 
 
 
