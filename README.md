@@ -24,7 +24,7 @@ Med detta pythonscript kan du automatisera bort en hel del av betysadministratio
 * Se till att skapa alla mappar innan du kör scriptet och tänk på att stora / små bokstäver gör skillnad
 * Om du fått felet __AttributeError: module 'tabula' has no attribute 'convert_into'__ så har du installerat __tabula__ och inte __tabula-py__<br />
 Kör __pip3 uninstall tabula__ och därefter __pip3 install tabula-py__
-* Python __3.11__ verkar inte fungera, men om du kör Python _3.__ upp till __3.9__ ska det fungera.
+* Python __3.11__ verkar inte fungera, men om du kör Python __3.__ upp till __3.9__ ska det fungera.
 
 ## Frågor
 Hör av dig till mig på sociala medier, oftast @mickekring, eller via mail på jag@mickekring.se
