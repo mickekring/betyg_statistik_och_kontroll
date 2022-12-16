@@ -26,5 +26,9 @@ Med detta pythonscript kan du automatisera bort en hel del av betysadministratio
 Kör __pip3 uninstall tabula__ och därefter __pip3 install tabula-py__
 * Python __3.11__ verkar inte fungera, men om du kör Python __3.__ upp till __3.9__ ska det fungera.
 
+## Historik
+* 2022-12-16 | Buggfix: Första eleven i betygskatalogen lästes inte in, då den började på rad 2. Satt till rad 1 nu och löst.
+* 2022-11-01 | PDF:er konverteras automatiskt till Excel
+
 ## Frågor
 Hör av dig till mig på sociala medier, oftast @mickekring, eller via mail på jag@mickekring.se
