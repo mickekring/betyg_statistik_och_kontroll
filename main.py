@@ -98,7 +98,7 @@ def Läs_från_betygsfil_till_databas():
 	rad = 2
 	klass = ""
 	personnummer ="1234567890"
-	student_rad = 2 # Vilken rad som första eleven börjar på i excelfilen
+	student_rad = 1 # Vilken rad som första eleven börjar på i excelfilen
 	student_namn = "Karl Anka"
 	bryt_loop_text = "Betygsgivande" # Text som står på raden direkt efter sista eleven, som gör att loopen bryts
 
