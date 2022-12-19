@@ -21,6 +21,7 @@ Med detta pythonscript kan du automatisera bort en hel del av betysadministratio
 6. Kör scriptet __main.py__ och välj 1 eller 2, det vill säga felsökning eller statistik.
 
 ## F.A.Q - Vanliga fel
+* Om du laddat ned och kört scriptet innan 19 december 2022, ta bort mappen __betygskatalog_felsökning__ och skapa den igen. Ladda därefter ned det senaste scriptet här och kör det. Det var ett fel i scriptet som gjorde att vissa datorer inte fixade bokstaven Ö.
 * Se till att skapa alla mappar innan du kör scriptet och tänk på att stora / små bokstäver gör skillnad
 * Om du fått felet __AttributeError: module 'tabula' has no attribute 'convert_into'__ så har du installerat __tabula__ och inte __tabula-py__<br />
 Kör __pip3 uninstall tabula__ och därefter __pip3 install tabula-py__
