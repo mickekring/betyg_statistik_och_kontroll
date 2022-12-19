@@ -23,12 +23,12 @@ arskurs = "9"
 # Kontrollerar vilket operativsystem
 
 if platform == "linux" or platform == "linux2":
-        operativsystem = "linux"
+	operativsystem = "linux"
 elif platform == "darwin":
-        operativsystem = "macos"
+	operativsystem = "macos"
 elif platform == "win32":
-        operativsystem = "windows"
-        
+	operativsystem = "windows"
+
 
 # Global lista över de betyg som finns. Används för att iterera över
 
@@ -53,9 +53,9 @@ user = Query()
 # Rensat konsolen vid start av script ####################################
 
 if operativsystem == "windows":
-        clear = lambda: os.system('cls')
+	clear = lambda: os.system('cls')
 else:
-        clear = lambda: os.system('clear')
+	clear = lambda: os.system('clear')
 
 clear()
 
@@ -780,11 +780,12 @@ def Skapa_excelfil(termin, klassbeteckning, arskurs, syfte):
 	# Skapa celler för ämnena
 
 	for betyg in betygslista:
-	    if "NP" in betyg:
-	        worksheet_new.write(row +9, col +3, betyg, header_grey_bg_center)
-	    else:
-	        worksheet_new.write(row +9, col +3, betyg, header_setting_border_center)
-	    col += 1
+		
+		if "NP" in betyg:
+			worksheet_new.write(row +9, col +3, betyg, header_grey_bg_center)
+		else:
+			worksheet_new.write(row +9, col +3, betyg, header_setting_border_center)
+		col += 1
 
 	logging.info("Avslut | Skapa_excelfil()")
 
@@ -838,7 +839,7 @@ def Menu():
 
 	if val == "1":
 		logging.info("Start | Meny val 1 - felsökning av betyg")
-		mapp = "betygskatalog_felsökning/"
+		mapp = "betygskatalog_felsökning/"
 		Konvertera_pdf_betygskatalog_till_xls()
 		Läs_från_betygsfil_till_databas()
 		logging.info("Avslut | Meny val 1  - felsökning av betyg")
